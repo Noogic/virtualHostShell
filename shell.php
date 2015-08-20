@@ -16,8 +16,15 @@ class Shell{
 		echo $this->msg['welcome'];
 		echo $this->msg['domain_type'];
 
-		$this->user_data['domain_type'] = $this->input->domain_type(fgets(STDIN));
+		$domain_type = $this->input->domain_type(fgets(STDIN));
+
+		$this->handle_domain_type($domain_type);
+		$this->user_data['domain_type'] = $domain_type;
 	}
+
+	private function handle_domain_type($type){
+
+    }
 
 	private function loadMessages(){
 		$this->msg['welcome'] = "Welcome to de virtual host creator. Let's get started\n\n";
