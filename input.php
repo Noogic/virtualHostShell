@@ -20,4 +20,8 @@ class Input{
 
 		return ($data == 'y' or $data == 'yes');
 	}
+
+	public function user_name($data){
+		return $data;
+	}
 }
