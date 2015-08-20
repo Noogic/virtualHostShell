@@ -41,5 +41,7 @@ class Shell{
 		$this->msg['welcome'] = "Welcome to de virtual host creator. Let's get started\n\n";
 		$this->msg['domain_type'] = "Are you going to create a domain (d)(by default) or subdomain (s)?: ";
 		$this->msg['domain']['domain_name'] = "What is the domain's name?: ";
+		$this->msg['subdomain']['domain_name'] = "For what domain are you creating a subdomain?: ";
+		$this->msg['subdomain']['subdomain_name'] = "What is the name of the subdomain (without the domain name)?: ";
 	}
 }
