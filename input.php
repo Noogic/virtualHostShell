@@ -5,7 +5,7 @@ class Input{
 	public function domain_type($data){
 		$data = trim(strtolower($data));
 
-		return ($data == 's' || $data == 'subdomain') ? 'subdomain' : 'domain';
+		return ($data == 's' or $data == 'subdomain') ? 'subdomain' : 'domain';
 	}
 
 	public function domain_name($data){
@@ -13,5 +13,11 @@ class Input{
 			throw new UnexpectedValueException("Invalid domain $data");
 
 		return trim(strtolower($data));
+	}
+
+	public function create_user($data){
+		$data = trim(strtolower($data));
+
+		return ($data == 'y' or $data == 'yes');
 	}
 }

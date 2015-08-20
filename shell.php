@@ -20,7 +20,11 @@ class Shell{
 
 		$this->handle_domain_type($domain_type);
 		$this->user_data['domain_type'] = $domain_type;
+
+		echo $this->msg['create_user'];
+		$create_user = $this->input->create_user(fgets(STDIN));
 	}
+
 
 	private function handle_domain_type($type){
 		if($type == 'subdomain') return $this->handle_sudomain();
@@ -43,5 +47,6 @@ class Shell{
 		$this->msg['domain']['domain_name'] = "What is the domain's name?: ";
 		$this->msg['subdomain']['domain_name'] = "For what domain are you creating a subdomain?: ";
 		$this->msg['subdomain']['subdomain_name'] = "What is the name of the subdomain (without the domain name)?: ";
+		$this->msg['create_user'] = "Do you want to create a new user for this domain?: ";
 	}
 }
