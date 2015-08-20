@@ -23,11 +23,23 @@ class Shell{
 	}
 
 	private function handle_domain_type($type){
+		if($type == 'subdomain') return $this->handle_sudomain();
 
-    }
+		return $this->handle_domain();
+	}
+
+	private function handle_domain(){
+		echo $this->msg['domain']['domain_name'];
+		$this->user_data['domain_name'] = $this->input->domain_name(fgets(STDIN));
+	}
+
+	private function handle_subdomain(){
+
+	}
 
 	private function loadMessages(){
 		$this->msg['welcome'] = "Welcome to de virtual host creator. Let's get started\n\n";
 		$this->msg['domain_type'] = "Are you going to create a domain (d)(by default) or subdomain (s)?: ";
+		$this->msg['domain']['domain_name'] = "What is the domain's name?: ";
 	}
 }
