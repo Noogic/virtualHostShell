@@ -27,6 +27,10 @@ class Shell{
 		$this->handle_create_user();
 	}
 
+	public function user_data(){
+		return $this->user_data;
+	}
+
 
 	private function handle_domain_type($type){
 		if($type == 'subdomain') return $this->handle_sudomain();
@@ -48,7 +52,20 @@ class Shell{
 
 		echo $this->msg['create_user']['user_name'];
 		$user_name = $this->input->user_name(fgets(STDIN));
+		
+		echo $this->msg['create_user']['password'];
+		$password_input = fgets(STDIN);
+		
+		echo $this->msg['create_user']['re-password'];
+		$re_password_input = fgets(STDIN);
+
+		$password = $this->input->password($password_input, $re_password_input);
+
 		$this->user_data['user_name'] = $user_name;
+		$this->user_data['password'] = $password;
+
+		system("useradd $user_name");
+		system("echo $user_name:$password | /usr/sbin/chpasswd");
 	}
 
 
@@ -60,5 +77,7 @@ class Shell{
 		$this->msg['subdomain']['subdomain_name'] = "What is the name of the subdomain (without the domain name)?: ";
 		$this->msg['create_user']['ask'] = "Do you want to create a new user for this domain?: ";
 		$this->msg['create_user']['user_name'] = "Which name do you want for the new user?: ";
+		$this->msg['create_user']['password'] = "Writte a password for the user: ";
+		$this->msg['create_user']['re-password'] = "Writte the password again, please: ";
 	}
 }

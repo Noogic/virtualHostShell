@@ -24,4 +24,11 @@ class Input{
 	public function user_name($data){
 		return $data;
 	}
+
+	public function password($password, $re_password){
+		if($password != $re_password)
+			throw new UnexpectedValueException("Password doesn't match");
+
+		return $password;
+	}
 }
