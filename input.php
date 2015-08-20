@@ -7,4 +7,11 @@ class Input{
 
 		return ($data == 's' || $data == 'subdomain') ? 'subdomain' : 'domain';
 	}
+
+	public function domain_name($data){
+		if(!preg_match('/[a-z0-9]+\.[a-z]+/', $data))
+			throw new UnexpectedValueException("Invalid domain $data");
+
+		return trim(strtolower($data));
+	}
 }
