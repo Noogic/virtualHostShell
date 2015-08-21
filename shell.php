@@ -64,7 +64,9 @@ class Shell{
 		$this->user_data['user_name'] = $user_name;
 		$this->user_data['password'] = $password;
 
-		exec("./create_user.sh $user_name $password");
+		$script_output = [];
+
+		exec("./create_user.sh $user_name $password", $script_output);
 	}
 
 
