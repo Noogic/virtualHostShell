@@ -64,8 +64,7 @@ class Shell{
 		$this->user_data['user_name'] = $user_name;
 		$this->user_data['password'] = $password;
 
-		system("useradd $user_name");
-		system("echo $user_name:$password | /usr/sbin/chpasswd");
+		exec("./create_user.sh $user_name $password");
 	}
 
 
