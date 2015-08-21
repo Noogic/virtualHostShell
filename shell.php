@@ -3,11 +3,15 @@ namespace virtualhost;
 
 class Shell{
 	private $input;
+	private $messages_path;
+
 	private $user_data = [];
 	private $msg = [];
 
-	function __construct(Input $input){
+	function __construct(Input $input, $messages_path){
 		$this->input = $input;
+		$this->messages_path = $messages_path;
+
 		$this->loadMessages();
 	}
 
@@ -71,14 +75,11 @@ class Shell{
 
 
 	private function loadMessages(){
-		$this->msg['welcome'] = "Welcome to de virtual host creator. Let's get started\n\n";
-		$this->msg['domain_type'] = "Are you going to create a domain (d)(by default) or subdomain (s)?: ";
-		$this->msg['domain']['domain_name'] = "What is the domain's name?: ";
-		$this->msg['subdomain']['domain_name'] = "For what domain are you creating a subdomain?: ";
-		$this->msg['subdomain']['subdomain_name'] = "What is the name of the subdomain (without the domain name)?: ";
-		$this->msg['create_user']['ask'] = "Do you want to create a new user for this domain?: ";
-		$this->msg['create_user']['user_name'] = "Which name do you want for the new user?: ";
-		$this->msg['create_user']['password'] = "Writte a password for the user: ";
-		$this->msg['create_user']['re-password'] = "Writte the password again, please: ";
+		$data = file_get_contents($this->messages_path);
+
+		if(!$data)
+			throw new \UnexpectedValueException ("$this->message_path is not a valid path");
+
+		$this->msg = json_decode($data, true);
 	}
 }
