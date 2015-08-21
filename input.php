@@ -3,7 +3,7 @@ namespace virtualhost;
 
 class Input{
 	public function domain_type($data){
-		$data = clear($data);
+		$data = $this->clear($data);
 
 		return ($data == 's' or $data == 'subdomain') ? 'subdomain' : 'domain';
 	}
