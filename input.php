@@ -22,7 +22,7 @@ class Input{
 	}
 
 	public function user_name($data){
-		return $data;
+		return $this->clear($data);
 	}
 
 	public function password($password, $re_password){
