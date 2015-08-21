@@ -10,7 +10,7 @@ class Input{
 
 	public function domain_name($data){
 		if(!preg_match('/[a-z0-9]+\.[a-z]+/', $data))
-			throw new UnexpectedValueException("Invalid domain $data");
+			throw new \UnexpectedValueException("Invalid domain $data");
 
 		return trim(strtolower($data));
 	}
@@ -27,7 +27,7 @@ class Input{
 
 	public function password($password, $re_password){
 		if($password != $re_password)
-			throw new UnexpectedValueException("Password doesn't match");
+			throw new \UnexpectedValueException("Password doesn't match");
 
 		return $password;
 	}
