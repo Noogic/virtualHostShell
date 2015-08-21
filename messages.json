@@ -1,0 +1,14 @@
+{
+	"welcome": "Welcome to de virtual host creator. Let's get started\n\n",
+	"domain_type": "Are you going to create a domain (d)(by default) or subdomain (s)?: ",
+	"domain": {
+		"domain_name": "What is the domain's name?: ",
+		"subdomain_name": "For what domain are you creating a subdomain?: "
+	},
+	"create_user": {
+		"ask": "Do you want to create a new user for this domain?: ",
+		"user_name": "Which name do you want for the new user?: ",
+		"password": "Write a password for the user: ",
+		"re-password": "Write the password again, please: "
+	}
+}
